@@ -1,3 +1,7 @@
 #panopto-logo:hover {
     cursor: pointer;
 }
+
+#video-template {
+    border: solid 1px black;
+}
