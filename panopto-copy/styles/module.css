@@ -3,7 +3,8 @@
 }
 
 #video-template {
-    border: solid 1px yellow;
+    display: none;
+    /* border: solid 1px yellow; */
 }
 
 #video {

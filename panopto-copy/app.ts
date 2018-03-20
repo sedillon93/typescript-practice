@@ -1,5 +1,5 @@
 'use strict';
-let videoObjects: Array<object> = [
+let videoObjects: Array<any> = [
     {
     imageUrl: "https://picsum.photos/200/300",
     label: "treehouse"
@@ -37,10 +37,14 @@ class VideoInset {
 // function to fill template and append to page using vanilla TypeScript
 const fillTemplate = () => {
     let videoTemplateNode: HTMLElement = document.getElementById('video-template');
-    for(let i of videoObjects){
+    videoObjects.forEach(videoContent => {
         let newVideo: HTMLElement = videoTemplateNode.cloneNode(true) as HTMLElement;
         newVideo.setAttribute('id', 'video');
+        console.log(newVideo.getElementsByTagName("img")[0].src, 'src before assignment');
+        newVideo.getElementsByTagName("img")[0].src = videoContent.imageUrl;
+        console.log(newVideo.getElementsByTagName("img")[0].src, 'src after assignment');
+        console.log(newVideo.getElementsByTagName("p")[0]);
         let container = document.getElementById('video-container');
         container.appendChild(newVideo);
-    }
+    })
 }

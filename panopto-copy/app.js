@@ -32,11 +32,14 @@ var VideoInset = /** @class */ (function () {
 // function to fill template and append to page using vanilla TypeScript
 var fillTemplate = function () {
     var videoTemplateNode = document.getElementById('video-template');
-    for (var _i = 0, videoObjects_1 = videoObjects; _i < videoObjects_1.length; _i++) {
-        var i = videoObjects_1[_i];
+    videoObjects.forEach(function (videoContent) {
         var newVideo = videoTemplateNode.cloneNode(true);
         newVideo.setAttribute('id', 'video');
+        console.log(newVideo.getElementsByTagName("img")[0].src, 'src before assignment');
+        newVideo.getElementsByTagName("img")[0].src = videoContent.imageUrl;
+        console.log(newVideo.getElementsByTagName("img")[0].src, 'src after assignment');
+        console.log(newVideo.getElementsByTagName("p")[0]);
         var container = document.getElementById('video-container');
         container.appendChild(newVideo);
-    }
+    });
 };
