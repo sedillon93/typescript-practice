@@ -1,4 +1,22 @@
 'use strict';
+let videoObjects: Array<object> = [
+    {
+    imageUrl: "https://picsum.photos/200/300",
+    label: "treehouse"
+    },
+    {
+    imageUrl: "https://picsum.photos/200/300",
+    label: "fishy"
+    },
+    {
+    imageUrl: "https://picsum.photos/200/300",
+    label: "waldo"
+    },
+    {
+    imageUrl: "https://picsum.photos/200/300",
+    label: "groot"
+    }
+]
 
 let logo: HTMLElement = document.getElementById('panopto-logo');
 logo.addEventListener("click", function(){
@@ -19,8 +37,10 @@ class VideoInset {
 // function to fill template and append to page using vanilla TypeScript
 const fillTemplate = () => {
     let videoTemplateNode: HTMLElement = document.getElementById('video-template');
-    let newVideo: HTMLElement = videoTemplateNode.cloneNode(true) as HTMLElement;
-    newVideo.setAttribute('id', 'video');
-    console.log(newVideo);
-    
+    for(let i of videoObjects){
+        let newVideo: HTMLElement = videoTemplateNode.cloneNode(true) as HTMLElement;
+        newVideo.setAttribute('id', 'video');
+        let container = document.getElementById('video-container');
+        container.appendChild(newVideo);
+    }
 }

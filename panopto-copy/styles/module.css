@@ -3,5 +3,9 @@
 }
 
 #video-template {
-    border: solid 1px black;
+    border: solid 1px yellow;
+}
+
+#video {
+    border: groove 1px blue;
 }
