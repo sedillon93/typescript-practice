@@ -10,3 +10,7 @@
 #video {
     border: groove 1px blue;
 }
+
+#learn-more {
+    cursor: pointer;
+}

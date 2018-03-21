@@ -19,9 +19,7 @@ let videoObjects: Array<any> = [
 ]
 
 let logo: HTMLElement = document.getElementById('panopto-logo');
-logo.addEventListener("click", function(){
-    console.log('hello');
-})
+logo.addEventListener("click", () => console.log("hello"))
 
 class VideoInset {
     image: string;
@@ -40,11 +38,27 @@ const fillTemplate = () => {
     videoObjects.forEach(videoContent => {
         let newVideo: HTMLElement = videoTemplateNode.cloneNode(true) as HTMLElement;
         newVideo.setAttribute('id', 'video');
-        console.log(newVideo.getElementsByTagName("img")[0].src, 'src before assignment');
         newVideo.getElementsByTagName("img")[0].src = videoContent.imageUrl;
-        console.log(newVideo.getElementsByTagName("img")[0].src, 'src after assignment');
-        console.log(newVideo.getElementsByTagName("p")[0]);
+        newVideo.getElementsByTagName("p")[0].innerText = videoContent.label;
+        newVideo.getElementsByTagName("p")[1].innerHTML = (new Date()).toString();
+
+        let learnMoreButton: Element = newVideo.getElementsByClassName('learn-more')[0];
+        learnMoreButton.addEventListener("click", function(event){
+            event.preventDefault();
+            console.log(`I am Groot`);
+            console.log(`this is `, this);
+        });
         let container = document.getElementById('video-container');
         container.appendChild(newVideo);
     })
+
+    //add onClick handler to buttons to append paragraph to DOM
+    // let learnMoreButton: HTMLElement = document.getElementsByClassName('learn-more');
+    // learnMoreButton.addEventListener("click", function(event){
+    //     event.preventDefault();
+    //     console.log(`I am Groot`);
+    //     console.log(`this is `, this);
+    // });
 }
+
+fillTemplate();
