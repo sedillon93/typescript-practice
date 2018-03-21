@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonJS",
+        "sourceMap": "true"
+    },
+    "files": [
+        "app.ts"
+    ]
+}
+
+// do I need commonJS module or sourcemap?

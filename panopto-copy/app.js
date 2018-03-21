@@ -39,18 +39,10 @@ var fillTemplate = function () {
         var learnMoreButton = newVideo.getElementsByClassName('learn-more')[0];
         learnMoreButton.addEventListener("click", function (event) {
             event.preventDefault();
-            console.log("I am Groot");
-            console.log("this is ", this);
+            console.log("this is ", this.parentNode);
         });
         var container = document.getElementById('video-container');
         container.appendChild(newVideo);
     });
-    //add onClick handler to buttons to append paragraph to DOM
-    // let learnMoreButton: HTMLElement = document.getElementsByClassName('learn-more');
-    // learnMoreButton.addEventListener("click", function(event){
-    //     event.preventDefault();
-    //     console.log(`I am Groot`);
-    //     console.log(`this is `, this);
-    // });
 };
 fillTemplate();
