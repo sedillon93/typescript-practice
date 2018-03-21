@@ -32,6 +32,15 @@ class VideoInset {
     }
 }
 
+const handleLearnMoreClick = function(event){
+    event.preventDefault();
+    let parentNode: Node = this.parentNode;
+    let learnMoreParagraph: HTMLElement = document.createElement("p");
+    learnMoreParagraph.innerText = "I am some example test for what things might say when you click a button"
+    parentNode.appendChild(learnMoreParagraph);
+    this.removeEventListener("click", handleLearnMoreClick);
+}
+
 // function to fill template and append to page using vanilla TypeScript
 const fillTemplate = () => {
     let videoTemplateNode: HTMLElement = document.getElementById('video-template');
@@ -43,13 +52,7 @@ const fillTemplate = () => {
         newVideo.getElementsByTagName("p")[1].innerHTML = (new Date()).toString();
 
         let learnMoreButton: Element = newVideo.getElementsByClassName('learn-more')[0];
-        learnMoreButton.addEventListener("click", function(event){
-            event.preventDefault();
-            let parentNode: Node = this.parentNode;
-            let learnMoreParagraph: HTMLElement = document.createElement("p");
-            learnMoreParagraph.innerText = "I am some example test for what things might say when you click a button"
-            parentNode.appendChild(learnMoreParagraph);
-        });
+        learnMoreButton.addEventListener("click", handleLearnMoreClick);
         let container = document.getElementById('video-container');
         container.appendChild(newVideo);
     })

@@ -27,6 +27,14 @@ var VideoInset = /** @class */ (function () {
     }
     return VideoInset;
 }());
+var handleLearnMoreClick = function (event) {
+    event.preventDefault();
+    var parentNode = this.parentNode;
+    var learnMoreParagraph = document.createElement("p");
+    learnMoreParagraph.innerText = "I am some example test for what things might say when you click a button";
+    parentNode.appendChild(learnMoreParagraph);
+    this.removeEventListener("click", handleLearnMoreClick);
+};
 // function to fill template and append to page using vanilla TypeScript
 var fillTemplate = function () {
     var videoTemplateNode = document.getElementById('video-template');
@@ -37,13 +45,7 @@ var fillTemplate = function () {
         newVideo.getElementsByTagName("p")[0].innerText = videoContent.label;
         newVideo.getElementsByTagName("p")[1].innerHTML = (new Date()).toString();
         var learnMoreButton = newVideo.getElementsByClassName('learn-more')[0];
-        learnMoreButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            var parentNode = this.parentNode;
-            var learnMoreParagraph = document.createElement("p");
-            learnMoreParagraph.innerText = "I am some example test for what things might say when you click a button";
-            parentNode.appendChild(learnMoreParagraph);
-        });
+        learnMoreButton.addEventListener("click", handleLearnMoreClick);
         var container = document.getElementById('video-container');
         container.appendChild(newVideo);
     });
