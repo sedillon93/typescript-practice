@@ -39,10 +39,14 @@ var fillTemplate = function () {
         var learnMoreButton = newVideo.getElementsByClassName('learn-more')[0];
         learnMoreButton.addEventListener("click", function (event) {
             event.preventDefault();
-            console.log("this is ", this.parentNode);
+            var parentNode = this.parentNode;
+            var learnMoreParagraph = document.createElement("p");
+            learnMoreParagraph.innerText = "I am some example test for what things might say when you click a button";
+            parentNode.appendChild(learnMoreParagraph);
         });
         var container = document.getElementById('video-container');
         container.appendChild(newVideo);
     });
 };
 fillTemplate();
+//# sourceMappingURL=app.js.map

@@ -45,7 +45,10 @@ const fillTemplate = () => {
         let learnMoreButton: Element = newVideo.getElementsByClassName('learn-more')[0];
         learnMoreButton.addEventListener("click", function(event){
             event.preventDefault();
-            console.log(`this is `, this.parentNode);
+            let parentNode: Node = this.parentNode;
+            let learnMoreParagraph: HTMLElement = document.createElement("p");
+            learnMoreParagraph.innerText = "I am some example test for what things might say when you click a button"
+            parentNode.appendChild(learnMoreParagraph);
         });
         let container = document.getElementById('video-container');
         container.appendChild(newVideo);
