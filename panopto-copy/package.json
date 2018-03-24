@@ -1,0 +1,16 @@
+{
+  "name": "panopto-copy",
+  "version": "1.0.0",
+  "description": "practicing typescript and jasmine testing by copying webpage",
+  "main": "app.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "shannon",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "tslint": "^5.9.1"
+  }
+}
