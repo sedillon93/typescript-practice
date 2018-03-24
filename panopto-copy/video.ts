@@ -49,4 +49,4 @@ namespace Video{
 
 Video.fillTemplate();
 
-export = Video;
+// export = Video;
