@@ -1,0 +1,14 @@
+{
+  "name": "general-testing",
+  "version": "1.0.0",
+  "description": "building simple typescript components and testing with jasmine",
+  "main": "person.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "shannon",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.6"
+  }
+}
