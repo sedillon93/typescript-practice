@@ -1,3 +1,16 @@
 #panopto-logo:hover {
     cursor: pointer;
 }
+
+#video-template {
+    display: none;
+    /* border: solid 1px yellow; */
+}
+
+#video {
+    border: groove 1px blue;
+}
+
+#learn-more {
+    cursor: pointer;
+}
