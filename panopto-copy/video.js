@@ -32,7 +32,8 @@ var Video;
         var videoTemplateNode = document.getElementById('video-template');
         videoObjects.forEach(function (videoContent) {
             var newVideo = videoTemplateNode.cloneNode(true);
-            newVideo.setAttribute('id', 'video');
+            newVideo.removeAttribute('id');
+            newVideo.setAttribute('class', 'video');
             newVideo.getElementsByTagName("img")[0].src = videoContent.imageUrl;
             newVideo.getElementsByTagName("p")[0].innerText = videoContent.label;
             newVideo.getElementsByTagName("p")[1].innerHTML = (new Date()).toString();
@@ -40,7 +41,6 @@ var Video;
             learnMoreButton.addEventListener("click", Video.handleLearnMoreClick);
             var container = document.getElementById('video-container');
             container.appendChild(newVideo);
-            console.log(newVideo, `the new video`);
         });
     };
 })(Video || (Video = {}));

@@ -1,7 +1,7 @@
 'use strict';
 
 namespace Video{
-  let videoObjects: Array<any> = [
+  export let videoObjects: Array<any> = [
     {
     imageUrl: "https://picsum.photos/200/300",
     label: "treehouse"
@@ -30,9 +30,9 @@ namespace Video{
   }
 
   // function to fill template and append to page using vanilla TypeScript
-  export const fillTemplate = (): void => {
+  export const fillTemplate = (collection: Array<any>): void => {
     let videoTemplateNode: HTMLElement = document.getElementById('video-template');
-    videoObjects.forEach(videoContent => {
+    collection.forEach(videoContent => {
       let newVideo: HTMLElement = videoTemplateNode.cloneNode(true) as HTMLElement;
       newVideo.setAttribute('class', 'video');
       newVideo.getElementsByTagName("img")[0].src = videoContent.imageUrl;
@@ -47,6 +47,4 @@ namespace Video{
   }
 }
 
-Video.fillTemplate();
-
-// export = Video;
+Video.fillTemplate(Video.videoObjects);
